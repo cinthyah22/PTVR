@@ -64,7 +64,7 @@
             <a-entity id = "bottle" obj-model = "obj: #bottle-obj; mtl: #bottle-mtl " scale="0.5 0.5 0.5" position = "-8 0.2 5" visible = "true">
                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
             </a-entity>
-            <a-entity id = "glass" obj-model = "obj: #coach-obj; mtl: #coach-mtl" scale="1 1 1" position = "-5 5 15" visible = "false">
+            <a-entity id = "football" obj-model = "obj: #coach-obj; mtl: #coach-mtl" scale="1 1 1" position = "-5 5 15" visible = "false">
                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
             </a-entity>
             <a-entity id = "laptop" obj-model = "obj: #laptop-obj; mtl: #laptop-mtl" scale="0.03 0.03 0.03" position = "-29 -22 29" visible = "false" begin="click">
@@ -82,7 +82,7 @@
                     document.getElementById('text1').setAttribute('visible', 'false')
                     document.getElementById('text2').setAttribute('visible','true')
                 })
-                document.getElementById('glass').addEventListener('click', function(e){
+                document.getElementById('football').addEventListener('click', function(e){
                     document.getElementById('da-sky').setAttribute('material', 'src: #space-background')
                     document.getElementById('laptop').setAttribute('visible', 'true')
                     document.getElementById('glass').setAttribute('visible', 'false')
