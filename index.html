@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <header>
-         <script src = "https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+         <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
     </header>
     <body>
 
@@ -56,11 +56,11 @@
 
 
             </a-asset>
+            <a-entity id="laser" laser-controls="hand: right" raycaster="showLine:true;" line="opacity:1.0;" daydream-controls="" gearvr-controls="" oculus-go-controls="" oculus-touch-controls="" vive-controls="" vive-focus-controls="" windows-motion-controls="" visible="">
 
             <a-sky id="da-sky" material = "src: #background"></a-sky>
-            <a-entity oculus-go-controls></a-entity>
-            <a-entity oculus-go-controls="hand: left"></a-entity>
-            <a-entity oculus-go-controls="hand: right"></a-entity>
+
+            <a-entity event-set_makevisable = "_event: mouseenter; visible:true"></a-entity>
             <a-entity id = "bottle" obj-model = "obj: #bottle-obj; mtl: #bottle-mtl " scale="0.5 0.5 0.5" position = "-8 0.2 5" visible = "true">
                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
             </a-entity>
@@ -77,15 +77,15 @@
             <a-entity id = "police" scale = "3 3 3" position = "0 -1 5" obj-model = "obj:#police-obj; mtl: #police-mtl" visible = "false"></a-entity>
 
             <script>
-              AFRAME.registerComponent('x-button-listener', {
+              AFRAME.registerComponent('triggerdown', {
                 init: function () {
                   var el = this.el;
-                  el.addEventListener('xbuttondown', function (evt) {
+                  el.addEventListener('triggerdown', function (evt) {
                     el.setAttribute('visible', !el.getAttribute('visible'));
                   });
                 }
               });
-                document.getElementById('bottle').addEventListener('xbuttondown', function(e){
+                document.getElementById('bottle').addEventListener('triggerdown', function(e){
                     document.getElementById('da-sky').setAttribute('material', 'src: #football-background')
                     document.getElementById('football').setAttribute('visible', 'true')
                     document.getElementById('text1').setAttribute('visible', 'false')
