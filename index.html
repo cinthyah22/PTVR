@@ -6,9 +6,6 @@
     <body>
 
         <a-scene>
-            <a-camera>
-                <a-cursor></a-cursor>
-            </a-camera>
             <a-text id = "text1" value="Locate the yellow camero!" color = "black" position = "0 2 -5" visible = "true" >
                 <a-animation fill = "forwards" attribute="visible" begin = "click" to = "false"></a-animation>
             </a-text>
@@ -61,6 +58,9 @@
             </a-asset>
 
             <a-sky id="da-sky" material = "src: #background"></a-sky>
+            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right"></a-entity>
+            <a-entity oculus-touch-controls x-button-listener></a-entity>
             <a-entity id = "bottle" obj-model = "obj: #bottle-obj; mtl: #bottle-mtl " scale="0.5 0.5 0.5" position = "-8 0.2 5" visible = "true">
                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
             </a-entity>
@@ -75,7 +75,16 @@
             </a-entity>
             <a-entity id = "bear" obj-model = "obj: #bear-obj; mtl: #bear-mtl" scale = "0.4 0.4 0.4" position = "0 -1 -5" visible = "true"></a-entity>
             <a-entity id = "police" scale = "3 3 3" position = "0 -1 5" obj-model = "obj:#police-obj; mtl: #police-mtl" visible = "false"></a-entity>
+
             <script>
+              AFRAME.registerComponent('x-button-listener', {
+                init: function () {
+                  var el = this.el;
+                  el.addEventListener('xbuttondown', function (evt) {
+                    el.setAttribute('visible', !el.getAttribute('visible'));
+                  });
+                }
+              });
                 document.getElementById('bottle').addEventListener('click', function(e){
                     document.getElementById('da-sky').setAttribute('material', 'src: #football-background')
                     document.getElementById('football').setAttribute('visible', 'true')
