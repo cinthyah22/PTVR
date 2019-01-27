@@ -78,15 +78,8 @@
             <a-entity id = "police" scale = "3 3 3" position = "0 -1 5" obj-model = "obj:#police-obj; mtl: #police-mtl" visible = "false"></a-entity>
 
             <script>
-              AFRAME.registerComponent('triggerdown', {
-                init: function () {
-                  var el = this.el;
-                  el.addEventListener('triggerdown', function (evt) {
-                    el.setAttribute('visible', !el.getAttribute('visible'));
-                  });
-                }
-              });
-                document.getElementById('bottle').addEventListener('triggerdown', function(e){
+              
+                document.getElementById('bottle').addEventListener('click', function(e){
                     document.getElementById('da-sky').setAttribute('material', 'src: #football-background')
                     document.getElementById('football').setAttribute('visible', 'true')
                     document.getElementById('text1').setAttribute('visible', 'false')
